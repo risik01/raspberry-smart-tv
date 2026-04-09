@@ -1,0 +1,4 @@
+/home/pi/bin/tv-watchdog.sh > /tmp/cv-tv-watchdog.log 2>&1 &
+rm -f /tmp/wobpipe && mkfifo /tmp/wobpipe
+sleep infinity > /tmp/wobpipe &
+WAYLAND_DISPLAY=wayland-0 XDG_RUNTIME_DIR=/run/user/1000 wob < /tmp/wobpipe &

@@ -1,0 +1,22 @@
+[Unit]
+Description=Casa Volterra TV Home Button v5.0
+After=cv-tv-proxy.service
+Requires=cv-tv-proxy.service
+
+[Service]
+Type=simple
+User=pi
+SupplementaryGroups=input
+WorkingDirectory=/home/pi
+Environment=CV_TV_CONFIG=/home/pi/cv-tv-config.json
+Environment=WAYLAND_DISPLAY=wayland-0
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+ExecStartPre=/bin/sleep 3
+ExecStart=/usr/bin/python3 /home/pi/cv-tv-home-button.py
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

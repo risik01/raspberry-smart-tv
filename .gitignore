@@ -1,0 +1,21 @@
+# Config con token/credenziali reali — NON committare mai
+cv-tv-config.json
+
+# Log e file temporanei
+*.log
+*.pid
+__pycache__/
+*.pyc
+*.pyo
+
+# Backup
+*.backup
+*.back
+*.bak
+
+# Archivi temporanei
+cv-tv-package-*.tar.gz
+
+# File sistema
+.DS_Store
+Thumbs.db

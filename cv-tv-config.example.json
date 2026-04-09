@@ -1,0 +1,93 @@
+{
+  "proxy": {
+    "port": 8765,
+    "wayland_display": "wayland-0",
+    "xdg_runtime_dir": "/run/user/1000",
+    "tv_url": "https://YOUR-WORDPRESS-SITE.com/televisione/?cv_token=YOUR-TOKEN-HERE",
+    "token": "YOUR-TOKEN-HERE",
+    "token_bypass": false,
+    "kodi_cmd": "kodi",
+    "browser_width": 1920,
+    "browser_height": 1080,
+    "pip_width": 1680,
+    "pip_height": 1050,
+    "pip_scale": "480:270",
+    "pip_fps": 8,
+    "pip_bitrate": "800k",
+    "pip_encoder": "libx264",
+    "pip_extra_args": "-preset ultrafast -tune zerolatency"
+  },
+  "webcams": {
+    "_comment": "Map: webcam-id → URL della pagina webcam (es. skylinewebcams). Aggiungere/rimuovere a piacere.",
+    "5222": "https://example.com/webcam1",
+    "1621": "https://example.com/webcam2"
+  },
+  "volume": {
+    "_comment": "method: wpctl (PipeWire) oppure amixer (ALSA)",
+    "method": "wpctl",
+    "step_percent": 5,
+    "amixer_control": "Master"
+  },
+  "device": {
+    "_comment": "Il proxy cerca tutti i device il cui nome inizia con questo prefisso (case-insensitive). Monitora event4+event5+event6+event7 automaticamente.",
+    "name": "AirMouse",
+    "path": "",
+    "debounce_sec": 0.25
+  },
+  "keys": {
+    "_comment": "Mappa codici evdev → azione. Azioni: tv, kodi, back, arrow_up, arrow_down, arrow_left, arrow_right, channel_up, channel_down, vol_up, vol_down, mute, power, playpause, firestick, pass",
+    "_event4_AirMouse_keyboard": "--- tasti da /dev/input/event4 ---",
+    "102": { "name": "HOME",      "action": "tv" },
+    "103": { "name": "UP",        "action": "arrow_up" },
+    "108": { "name": "DOWN",      "action": "arrow_down" },
+    "105": { "name": "LEFT",      "action": "tv" },
+    "106": { "name": "RIGHT",     "action": "firestick" },
+    "104": { "name": "PAGE_UP",   "action": "pass" },
+    "109": { "name": "PAGE_DOWN", "action": "pass" },
+    "158": { "name": "BACK",      "action": "back" },
+    "127": { "name": "COMPOSE",   "action": "pass" },
+    "28":  { "name": "ENTER",     "action": "select" },
+    "_event5_AirMouse_mouse": "--- tasti da /dev/input/event5 ---",
+    "272": { "name": "BTN_LEFT",  "action": "select" },
+    "273": { "name": "BTN_RIGHT", "action": "back" },
+    "_event6_AirMouse_System": "--- tasti da /dev/input/event6 ---",
+    "116": { "name": "POWER",  "action": "power" },
+    "142": { "name": "SLEEP",  "action": "power" },
+    "143": { "name": "WAKEUP", "action": "power" },
+    "_event7_AirMouse_Consumer": "--- tasti da /dev/input/event7 ---",
+    "172": { "name": "HOMEPAGE",  "action": "tv" },
+    "174": { "name": "EXIT",      "action": "tv" },
+    "377": { "name": "KEY_TV",    "action": "tv" },
+    "417": { "name": "GAMES",     "action": "kodi" },
+    "164": { "name": "PLAYPAUSE", "action": "playpause" },
+    "207": { "name": "PLAY",      "action": "playpause" },
+    "402": { "name": "CHANNELUP",   "action": "pass" },
+    "403": { "name": "CHANNELDOWN", "action": "pass" },
+    "115": { "name": "VOL+",  "action": "vol_up" },
+    "114": { "name": "VOL-",  "action": "vol_down" },
+    "113": { "name": "MUTE",  "action": "mute" },
+    "1":   { "name": "ESC",   "action": "tv" }
+  },
+  "buttons": {
+    "_comment": "DEPRECATO — mantenuto per compatibilità"
+  },
+  "homeassistant": {
+    "_comment": "Home Assistant kiosk. profile = cartella profilo Chromium dedicata",
+    "url": "http://YOUR-HA-IP:8123/lovelace/0",
+    "profile": "/home/pi/.chromium-ha"
+  },
+  "fab_positions": {
+    "_comment": "Posizione pulsanti Home/Back per sito. Chiave = hostname (o 'default'). Valori in pixel, null = non impostato",
+    "default":            { "top": 16, "right": 16, "bottom": null, "left": null },
+    "www.netflix.com":    { "top": 70, "right": 16, "bottom": null, "left": null },
+    "www.primevideo.com": { "top": 70, "right": 16, "bottom": null, "left": null },
+    "www.disneyplus.com": { "top": 70, "right": 16, "bottom": null, "left": null },
+    "127.0.0.1":          { "top": 16, "right": 16, "bottom": null, "left": null }
+  },
+  "kodi": {
+    "_comment": "Credenziali per il web server JSON-RPC di Kodi (porta 8080). Da abilitare in Kodi: Impostazioni → Servizi → Controllo → Consenti controllo HTTP",
+    "rpc_user": "kodi",
+    "rpc_password": "kodi",
+    "rpc_port": 8080
+  }
+}

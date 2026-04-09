@@ -1,0 +1,79 @@
+/* Casa Volterra TV Extension v4 */
+
+/* ── Floating buttons top-right ── */
+#cvtv-fab-wrap {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 2147483647;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+#cvtv-fab-wrap button {
+  pointer-events: auto;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(12, 8, 32, 0.82);
+  border: 2px solid rgba(255,255,255,0.28);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  transition: opacity .18s, transform .12s, background .12s;
+  opacity: 0.50;
+}
+#cvtv-fab-wrap button:hover { opacity: 1; transform: scale(1.12); background: rgba(28,14,65,0.97); }
+#cvtv-fab-wrap button:active { transform: scale(0.90); }
+#cvtv-fab-wrap button svg { width: 28px; height: 28px; pointer-events: none; }
+#cvtv-fab-wrap button.going { opacity: 1 !important; background: rgba(255,195,40,0.95) !important; }
+
+/* ── Virtual Keyboard ── */
+#cvtv-kb {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 2147483646;
+  background: rgba(10, 6, 26, 0.97);
+  border-top: 2px solid rgba(255,255,255,0.15);
+  box-shadow: 0 -6px 40px rgba(0,0,0,0.75);
+  backdrop-filter: blur(18px);
+  padding: 10px 8px 16px;
+  transform: translateY(100%);
+  transition: transform 0.2s cubic-bezier(.4,0,.2,1);
+  user-select: none;
+  -webkit-user-select: none;
+}
+#cvtv-kb.kb-visible { transform: translateY(0); }
+#cvtv-kb-handle {
+  width: 44px; height: 4px; border-radius: 2px;
+  background: rgba(255,255,255,0.22);
+  margin: 0 auto 10px; cursor: pointer;
+}
+.cvtv-kb-row {
+  display: flex; justify-content: center; gap: 5px; margin-bottom: 5px;
+}
+.cvtv-k {
+  min-width: 50px; height: 52px;
+  border-radius: 9px;
+  background: rgba(255,255,255,0.11);
+  border: 1px solid rgba(255,255,255,0.16);
+  color: #fff8f0;
+  font-size: 17px; font-weight: 600;
+  font-family: Inter, ui-rounded, system-ui, sans-serif;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .08s, transform .07s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.28);
+  padding: 0 6px; white-space: nowrap;
+}
+.cvtv-k:hover  { background: rgba(255,255,255,0.22); }
+.cvtv-k:active { background: rgba(255,215,50,0.42); transform: scale(0.91); }
+.cvtv-k.kw { min-width: 80px; font-size: 13px; }
+.cvtv-k.ksp { min-width: 260px; font-size: 13px; }
+.cvtv-k.kact { background: rgba(255,195,40,0.18); color: #ffe060; border-color: rgba(255,195,40,0.36); }
+.cvtv-k.kact:active { background: rgba(255,195,40,0.5); }
+.cvtv-k.kshift-on { background: rgba(80,160,255,0.28); color: #90d0ff; }

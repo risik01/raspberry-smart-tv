@@ -1,0 +1,6 @@
+<advancedsettings>
+  <cec>
+    <standbytvonExit>false</standbytvonExit>
+    <sendInactiveSource>false</sendInactiveSource>
+  </cec>
+</advancedsettings>

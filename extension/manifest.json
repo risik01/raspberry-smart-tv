@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Casa Volterra TV Helper",
+  "version": "5.1",
+  "description": "Home+Back buttons, virtual keyboard, scroll polling",
+  "permissions": [],
+  "host_permissions": ["http://127.0.0.1:8765/*", "http://127.0.0.1:8123/*"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_end",
+      "all_frames": false
+    }
+  ]
+}

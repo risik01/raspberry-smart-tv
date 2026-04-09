@@ -1,0 +1,17 @@
+[Unit]
+Description=Casa Volterra TV — Power Button CEC v1.0
+After=network.target cv-tv-proxy.service
+
+[Service]
+Type=simple
+User=pi
+ExecStartPre=/bin/sleep 5
+ExecStart=/usr/bin/python3 /home/pi/cv-tv-power-button.py
+Restart=always
+RestartSec=5
+Environment=DISPLAY=:0
+Environment=WAYLAND_DISPLAY=wayland-0
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+
+[Install]
+WantedBy=multi-user.target

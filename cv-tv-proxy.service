@@ -1,0 +1,19 @@
+[Unit]
+Description=Casa Volterra TV — Proxy HLS locale
+# Parte dopo che la rete è disponibile
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+# Adatta il percorso se metti lo script altrove
+ExecStart=/usr/bin/python3 /home/pi/cv-tv-proxy.py
+Restart=on-failure
+RestartSec=5
+# Log visibili con: journalctl -u cv-tv-proxy -f
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,21 @@
+[Unit]
+Description=Casa Volterra TV Proxy v6.0
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi
+Environment=CV_TV_CONFIG=/home/pi/cv-tv-config.json
+Environment=WAYLAND_DISPLAY=wayland-0
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+ExecStartPre=/bin/sleep 2
+ExecStart=/usr/bin/python3 /home/pi/cv-tv-proxy.py
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target
