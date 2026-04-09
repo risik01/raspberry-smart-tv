@@ -29,7 +29,7 @@
   btnHome.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>';
   btnHome.addEventListener('click', function () {
     btnHome.classList.add('going');
-    xhrGet(PROXY + '/launch/browser/home');
+    xhrGet(PROXY + '/launch/tv');
   });
 
   var btnBack = document.createElement('button');
@@ -37,7 +37,7 @@
   btnBack.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>';
   btnBack.addEventListener('click', function () {
     if (window.history.length > 1) window.history.back();
-    else xhrGet(PROXY + '/launch/browser/home');
+    else xhrGet(PROXY + '/launch/tv');
   });
 
   fab.appendChild(btnHome);
